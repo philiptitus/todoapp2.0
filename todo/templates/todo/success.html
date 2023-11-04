@@ -1,0 +1,5 @@
+{% extends "todo/base.html" %}
+{% block body_block %}
+<h4>Hey {{ user.username }}, your new task has been added successfully :</h4>
+<a href="{% url 'todo_app:uncomplete' %}"><h5>View Pending Tasks?</h5></a>
+{% endblock %}

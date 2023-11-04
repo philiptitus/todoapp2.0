@@ -1,0 +1,22 @@
+{% extends "todo/base.html" %}
+{% block body_block %}
+<div class="container-fluid">
+    <h1>HELLO  @{{ user.username }}...</h1>
+
+
+    <h4>These are your incomplete Tasks Be sure to finish them off in time..⌛</h4>
+  
+    {% for i in tlist %}
+    <table class="table table-danger table-striped">  {# Added closing double quote here #}
+   
+        <tr>
+            <td><h6><a href="{% url 'todo_app:single' pk=i.pk %}">{{ i.item }}</a></h6></td>
+            <td style="text-align: right;"><h6><a href="{% url 'todo_app:single' pk=i.pk %}">Date Added: {{ i.completion_date }}</a></h6></td>
+
+
+        </tr>
+    </table>
+    {% endfor %}
+
+</div>
+{% endblock %}

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+{% extends 'todo/base.html'%}
+{% block body_block %}
+
+<div class="container">
+    <form action="" method="post">
+        
+    <h4>HI THERE!</h4>
+        {% csrf_token %}
+    <input type="text" name="username" id="" placeholder="USERNAME">
+    <input type="password" name="password" id="" placeholder="PASSWORD"">
+    <input type="submit" class="btn btn-warning" name="" id="" value="LOGIN">
+    </form>
+</div>
+
+
+
+{% endblock %}

@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+{% extends 'todo/base.html' %}
+{% block body_block %}
+
+<div class="container">
+    <h3>ADD SOMETHING YOU WANT TO DO BELOW.....</h3>
+    <form action="" method="post">
+    {% csrf_token %}
+    {{ todo_list.as_p }}
+    <input type="submit" value="ADD TASK" class="btn btn-danger">
+    </form>
+
+</div>
+
+{% endblock %}

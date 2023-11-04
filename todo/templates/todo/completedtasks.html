@@ -1,0 +1,14 @@
+{% extends "todo/base.html" %}
+{% block body_block %}
+<div class="container-fluid">
+    <h3>These are your previously completed items {{ user.username }} ✅</h3>
+    {% for i in tlist %}
+    <table class="table table-success table-striped">
+        <tr>
+            <td><h5><a href="{% url 'todo_app:single' pk=i.pk %}">{{ i.item }}</a></h5></td>
+            <td style="text-align: right;"><h6>Date Finished: {{ i.date_completed }}</h6></td>
+        </tr>
+    </table>
+    {% endfor %}
+</div>
+{% endblock %}

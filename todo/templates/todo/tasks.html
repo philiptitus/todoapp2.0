@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+{% extends 'todo/base.html' %}
+{% block body_block %}
+<div class="container">
+    <h2>ALL TASKS BY @{{ user.username  }}</h2>
+   {% if tasks %}
+   <div class="container">
+   <table cellspacing="80" cellpadding="20" class="table table-info table-striped ">
+    <thead>
+        <th>TITLE</th>
+        <th>Created</th>
+    </thead>
+
+    {% for a in tasks %}
+    <tr>
+        <td><h6><a href="{% url 'todo_app:single' pk=a.pk %}">{{ a.item }}</a></h6></td>
+        <td>{{ a.completion_date }}</td>
+    </tr>
+    {% endfor %}
+</table>
+</div>
+    {% endif %}
+</div>
+{% endblock %}

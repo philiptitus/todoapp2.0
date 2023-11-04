@@ -1,0 +1,24 @@
+{% extends 'todo/base.html' %}
+{% block body_block %}
+<div class="container">
+    <div class="container-fluid">
+        <h1>{{ tlist.item }}</h1>
+        <textarea id="description" rows="5" cols="50" readonly>{{ tlist.description }}</textarea>
+        {% if tlist.date_completed is None %}
+        <h6>Created On: {{ tlist.completion_date }}</h6>
+        {% else %}
+        <h6>Completed On: {{ tlist.date_completed }}</h6>
+        {% endif %}
+    </div>
+    <h4><a href="{% url 'todo_app:delete' pk=tlist.pk %}" class="btn btn-danger">DELETE</a></h4>
+    <h4><a href="{% url 'todo_app:update_task' pk=tlist.pk %}" class="btn btn-warning">EDIT</a></h4>
+    <br>
+    <br>
+    {% if tlist.date_completed is None %}
+    <form method="POST" action="{% url 'todo_app:completetask' pk=tlist.pk %}">
+        {% csrf_token %}
+        <input type="submit" value="MARK DONE" id="">
+    </form>
+    {% endif %}
+</div>
+{% endblock %}

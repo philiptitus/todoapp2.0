@@ -1,0 +1,8 @@
+{% extends "todo/base.html" %}
+{% block body_block %}
+<div class="container">
+    <h5>Hmm... It looks like you finished off Evrything😍..Congrats👏</h5>
+    <h6>Add another?  </h6>
+    <a href="{% url 'todo_app:task' %}"><h1>+</h1></a>
+</div>
+{% endblock %}
